@@ -65,6 +65,10 @@ class PetEditViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    restorationIdentifier = "PetEditViewController"
+    restorationClass = PetEditViewController.self
+
+    
     view.backgroundColor = UIColor.whiteColor()
     
     profileImageView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -135,5 +139,13 @@ class PetEditViewController: UIViewController {
     petId = Int(coder.decodeIntegerForKey("id"))
     
     super.decodeRestorableStateWithCoder(coder)
+  }
+}
+
+extension PetEditViewController: UIViewControllerRestoration {
+  static func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject],
+                                                          coder: NSCoder) -> UIViewController? {
+    let vc = PetEditViewController()
+    return vc
   }
 }
