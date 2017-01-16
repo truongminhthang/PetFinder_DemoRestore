@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntroductionViewController: UIViewController {
+class IntroductionViewController: UIViewController, CAAnimationDelegate {
   
   @IBOutlet weak var petProfileView: UIView!
   @IBOutlet weak var petProfilePictureImageView: UIImageView!
@@ -29,7 +29,7 @@ class IntroductionViewController: UIViewController {
     petProfilePictureImageView.layer.cornerRadius = 8.0
     petProfilePictureImageView.backgroundColor = UIColor.lightGrayColor()
     
-    let pan = UIPanGestureRecognizer(target: self, action: "didPan:")
+    let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan))
     petProfileView.addGestureRecognizer(pan)
   }
   
